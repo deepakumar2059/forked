@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create first admin</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
+    <header class="site-header">
+      <h1>Bootstrap administrator</h1>
+      <p class="tagline">
+        Use once when no admin account exists. In production, set
+        <code>ALLOW_ADMIN_BOOTSTRAP=true</code> or create admins via database script.
+      </p>
+    </header>
+    <main class="auth-page">
+      <section class="card">
+        <div id="alert" class="alert error" hidden></div>
+        <form id="form" class="form-stack">
+          <div class="field">
+            <label for="email">Admin email</label>
+            <input id="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="password">Password (min 8)</label>
+            <input id="password" type="password" minlength="8" required />
+          </div>
+          <button type="submit" class="btn">Create admin</button>
+        </form>
+      </section>
+    </main>
+    <script type="module">
+      import { initNav } from '/js/nav.js';
+      initNav();
+      const alertEl = document.getElementById('alert');
+      document.getElementById('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertEl.hidden = true;
+        try {
+          const r = await fetch('/api/admin/bootstrap', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: document.getElementById('email').value,
+              password: document.getElementById('password').value,
+            }),
+          });
+          const data = await r.json().catch(() => ({}));
+          if (!r.ok) throw new Error(data.message || 'Failed');
+          alertEl.textContent = 'Admin created. You can log in now.';
+          alertEl.className = 'alert success';
+          alertEl.hidden = false;
+        } catch (err) {
+          alertEl.textContent = err.message;
+          alertEl.className = 'alert error';
+          alertEl.hidden = false;
+        }
+      });
+    </script>
+  </body>
+</html>

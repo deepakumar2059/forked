@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New project</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
+    <header class="site-header">
+      <h1>Create project</h1>
+    </header>
+    <main class="profile-main">
+      <section class="card profile-section">
+        <div id="alert" class="alert error" hidden></div>
+        <form id="form" class="form-stack">
+          <div class="field">
+            <label for="title">Title</label>
+            <input id="title" required maxlength="200" />
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <textarea id="description" rows="5" required></textarea>
+          </div>
+          <div class="field">
+            <label for="team_size">Team size (max collaborators)</label>
+            <input id="team_size" type="number" min="1" max="500" value="4" required />
+          </div>
+          <div class="field">
+            <label for="project_type">Project type</label>
+            <select id="project_type" required>
+              <option value="hobby">Hobby</option>
+              <option value="startup">Startup</option>
+              <option value="academic">Academic</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="team_type">Team type (e.g. remote, hybrid)</label>
+            <input id="team_type" maxlength="80" />
+          </div>
+          <div class="field">
+            <label for="deadline">Deadline (optional)</label>
+            <input id="deadline" type="date" />
+          </div>
+          <div class="field">
+            <label for="category_id">Category (optional)</label>
+            <select id="category_id">
+              <option value="">—</option>
+            </select>
+          </div>
+          <div class="field full-width">
+            <label>Required skills</label>
+            <div id="skills" class="skill-grid"></div>
+          </div>
+          <button type="submit" class="btn">Create</button>
+        </form>
+      </section>
+    </main>
+    <script src="/js/project-new.js" type="module"></script>
+  </body>
+</html>

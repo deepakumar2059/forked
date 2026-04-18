@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse projects</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
+    <header class="site-header">
+      <h1>Browse open projects</h1>
+      <p class="tagline">Filter by skills, type, or team style — then open a project to apply or view details.</p>
+    </header>
+    <main class="profile-main">
+      <section class="card profile-section">
+        <form id="filters" class="form-stack filter-row">
+          <div class="field">
+            <label for="project_type">Project type</label>
+            <select id="project_type" name="project_type">
+              <option value="">Any</option>
+              <option value="hobby">Hobby</option>
+              <option value="startup">Startup</option>
+              <option value="academic">Academic</option>
+            </select>
+          </div>
+          <div class="field grow">
+            <label for="team_type">Team type (contains)</label>
+            <input id="team_type" name="team_type" type="text" placeholder="e.g. remote, hybrid" />
+          </div>
+          <div class="field full-width">
+            <label>Required skills (any match)</label>
+            <div id="skill-filters" class="skill-grid"></div>
+          </div>
+          <button type="submit" class="btn">Apply filters</button>
+        </form>
+      </section>
+      <div id="alert" class="alert error" hidden></div>
+      <div id="list"></div>
+    </main>
+    <script src="/js/projects.js" type="module"></script>
+  </body>
+</html>

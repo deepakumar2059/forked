@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — Student Collaboration</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
+    <header class="site-header">
+      <h1>Create an account</h1>
+      <p class="tagline">Create one account to post projects, join teams, and manage your profile.</p>
+    </header>
+    <main class="auth-page">
+      <section class="card">
+        <div id="alert" class="alert error" hidden></div>
+        <form id="form">
+          <div class="form-stack">
+            <div class="field">
+              <label for="display_name">Display name</label>
+              <input id="display_name" name="display_name" type="text" maxlength="120" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="password">Password (min 8 characters)</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn">Register</button>
+        </form>
+        <p style="margin-top: 1.25rem; margin-bottom: 0; color: var(--muted); font-size: 0.9rem">
+          Already have an account?
+          <a href="/login.html">Log in</a>
+        </p>
+      </section>
+    </main>
+    <script src="/js/register.js" type="module"></script>
+  </body>
+</html>

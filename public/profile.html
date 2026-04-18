@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your profile — Student Collaboration</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
+    <header class="site-header">
+      <h1>Your profile</h1>
+      <p class="tagline">Update how teammates see you: basics, skills, interests, and past work.</p>
+    </header>
+    <main class="profile-main">
+      <div id="alert" class="alert error" hidden></div>
+
+      <section class="card profile-section">
+        <h2>Basics</h2>
+        <form id="form-core" class="form-stack">
+          <div class="field">
+            <label for="display_name">Display name</label>
+            <input id="display_name" name="display_name" type="text" maxlength="120" required />
+          </div>
+          <div class="field">
+            <label for="branch">Branch</label>
+            <input id="branch" name="branch" type="text" maxlength="120" />
+          </div>
+          <div class="field">
+            <label for="year">Year</label>
+            <input id="year" name="year" type="text" maxlength="32" placeholder="e.g. 2nd year" />
+          </div>
+          <div class="field">
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn">Save basics</button>
+        </form>
+      </section>
+
+      <section class="card profile-section">
+        <h2>Skills</h2>
+        <p class="section-hint">Managed tags from the directory. Run <code>mysql … &lt; db/seed_skills.sql</code> if the list is empty.</p>
+        <form id="form-skills">
+          <div id="skill-checkboxes" class="skill-grid"></div>
+          <button type="submit" class="btn" style="margin-top: 1rem">Save skills</button>
+        </form>
+      </section>
+
+      <section class="card profile-section">
+        <h2>Interests</h2>
+        <p class="section-hint">Comma or newline separated (max 64 tags, 80 characters each).</p>
+        <form id="form-interests" class="form-stack">
+          <div class="field">
+            <label for="interests">Interest tags</label>
+            <textarea id="interests" name="interests" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn">Save interests</button>
+        </form>
+      </section>
+
+      <section class="card profile-section">
+        <h2>Past projects</h2>
+        <ul id="past-list" class="past-list"></ul>
+        <form id="form-past" class="form-stack past-add">
+          <div class="field">
+            <label for="past_title">Title</label>
+            <input id="past_title" type="text" maxlength="200" required />
+          </div>
+          <div class="field">
+            <label for="past_desc">Description (optional)</label>
+            <textarea id="past_desc" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn secondary">Add past project</button>
+        </form>
+      </section>
+    </main>
+    <script src="/js/profile.js" type="module"></script>
+  </body>
+</html>

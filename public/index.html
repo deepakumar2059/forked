@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Collaboration Platform</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
+    <header class="site-header">
+      <h1>Student Collaboration &amp; Team Formation</h1>
+      <p class="tagline">
+        Post projects, discover teams, and collaborate — all in one place.
+      </p>
+    </header>
+    <main>
+      <p id="welcome" class="card" hidden style="margin-bottom: 1rem">
+        Signed in as <strong></strong>.
+        <a href="/profile.html">Profile</a> ·
+        <a href="/projects.html">Browse projects</a>
+      </p>
+      <section class="card">
+        <h2>Getting started</h2>
+        <ol>
+          <li>Copy <code>.env.example</code> to <code>.env</code> and set MySQL + <code>JWT_SECRET</code>.</li>
+          <li>
+            Run <code>mysql -u root -p &lt; db/schema.sql</code> (optional:
+            <code>seed_skills.sql</code>, <code>seed_categories.sql</code>).
+          </li>
+          <li>Run <code>npm install</code> then <code>npm run dev</code>.</li>
+          <li>
+            First-time admin: open <a href="/bootstrap.html">bootstrap.html</a> (disabled in production unless
+            <code>ALLOW_ADMIN_BOOTSTRAP=true</code>).
+          </li>
+          <li>Explore <a href="/projects.html">open projects</a> or create an account.</li>
+        </ol>
+      </section>
+    </main>
+    <script src="/js/app.js" type="module"></script>
+  </body>
+</html>
