@@ -13,5 +13,7 @@ descriptions should also have a well defined format
   4. actual result
   5. environment
   6. screenshot / logs
-  7. possible solution 
+  7. possible solution
+
+  8. 
 
